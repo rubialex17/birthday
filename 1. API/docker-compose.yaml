@@ -10,7 +10,8 @@ services:
       - postgres:postgres
   postgres:
     restart: always
-    image: revol-postgres
+    build:
+      dockerfile: ./Dockerfile.postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=mysecretpassword
