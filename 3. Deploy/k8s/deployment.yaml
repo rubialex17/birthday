@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: birthday-app
+  labels:
+    app: birthday
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: birthday
+  template:
+    metadata:
+      labels:
+        app: birthday
+    spec:
+      containers:
+      - name: birthday-app
+        image: $IMAGE
+        ports:
+        - containerPort: 5005
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+                configMapKeyRef:
+                  name: birthday-configmap
+                  key: POSTGRES_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+                secretKeyRef:
+                  name: birthday-secrets
+                  key: POSTGRES_PASSWORD

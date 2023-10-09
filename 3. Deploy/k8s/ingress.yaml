@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: birthday-app-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: xxx
+    http:
+      paths:
+      - backend:
+          service:
+            name: birthday-app-service
+            port:
+              number: 5005
+        path: /
+        pathType: ImplementationSpecific

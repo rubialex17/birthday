@@ -1,0 +1,18 @@
+version: '3'
+services:
+  birthday-app:
+    restart: always
+    env_file: .env
+    build: .
+    ports:
+      - "5005:5005"
+    links:
+      - postgres:postgres
+  postgres:
+    restart: always
+    image: revol-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=mysecretpassword
+    ports:
+      - "5432:5432"
