@@ -10,7 +10,7 @@ import os
 from app import app
 
 # Variables
-POSTGRES_HOST = os.environ.get("POSTGRES_HOST", "localhost:5432")
+POSTGRES_HOST = os.environ.get("POSTGRES_HOST", "localhost")
 POSTGRES_USER = os.environ.get("POSTGRES_USER", "postgres")
 POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD", "mysecretpassword")
 POSTGRES_PORT = os.environ.get("POSTGRES_PORT", "5432")
