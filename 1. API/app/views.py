@@ -65,11 +65,13 @@ def calculate_days(birthday):
     numbers1 = [ int(i) for i in x ]
     numbers2 = [ int(i) for i in y ]
 
+    # Using actual year to calculate the difference
     d0 = date(numbers1[0],numbers1[1],numbers1[2])
     d1 = date(numbers1[0],numbers2[1],numbers2[2])
 
     delta = d1 - d0
 
+    # If birthday is in the past, get the date next year
     if delta.days < 0:
         d1 = date(numbers1[0]+1,numbers2[1],numbers2[2])
         delta = d1-d0
