@@ -1,5 +1,5 @@
 ## Pull repo
-git clone xxx.com/birthday-app.git
+git clone https://github.com/rubialex17/birthday.git
 
 ## Get commit id
 commit=$(git log -n 1 --pretty=format:"%H")
